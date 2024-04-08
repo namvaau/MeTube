@@ -20,7 +20,7 @@ import services.VideoService;
 
 @WebServlet(urlPatterns = { "/index", "/favorites", "/history" })
 public class HomeServlet extends HttpServlet {
-	public static final int VIDEO_MAX_PAGE_SIZE = 4;
+	public static final int VIDEO_MAX_PAGE_SIZE = 8;
 	private static final long serialVersionUID = 1L;
 	private VideoService videoService = new VideoService(); // Inject IoC
 	private HistoryService historyService = new HistoryService();

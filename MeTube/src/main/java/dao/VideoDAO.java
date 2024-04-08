@@ -26,4 +26,6 @@ public class VideoDAO extends AbstractDAO<Video> {
 		// Write Comment
 		return super.findAll(Video.class, true, pageNumber, pageSize);
 	}
+	
+	
 }

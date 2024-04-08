@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.VideoDAO;
 import entity.History;
 import entity.User;
 import entity.Video;
@@ -40,6 +42,8 @@ public class VideoController extends HttpServlet {
 			throws ServletException, IOException {
 		Video video = videoService.findByHref(href);
 		req.setAttribute("video", video);
+		List<Video> lst = videoService.getOtherVideos(href);
+		req.setAttribute("videos", lst);
 		User currrentUser = (User) session.getAttribute("currentUser");
 
 		// Neu da dang nhap thi click vao xem thi them vao History - xem xem no da like

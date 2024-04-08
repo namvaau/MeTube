@@ -35,6 +35,11 @@ public class VideoService {
 		return dao.findAll(pageNumber, pageSize);
 	}
 
+	public List<Video> getOtherVideos(String href) {
+		String hql = "SELECT o FROM Video o WHERE o.href != ?0";
+		return dao.findMany(Video.class, hql, href);
+	}
+
 	public Video create(Video entity) {
 		//
 		entity.setIsActive(Boolean.TRUE);

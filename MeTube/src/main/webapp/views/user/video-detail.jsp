@@ -11,7 +11,7 @@
 	href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
 	rel="stylesheet">
 
-<title>Cyborg - Awesome HTML5 Template</title>
+<title>${video.title}</title>
 
 <!-- Bootstrap core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -58,49 +58,32 @@ https://templatemo.com/tm-579-cyborg-gaming
 					<!-- ***** Featured Games Start ***** -->
 					<div class="row">
 						<div class="col-lg-8">
-							<div class="featured-games header-text" style="width:100%;height: 100%">
+							<div class="featured-games header-text"
+								style="width: 100%; height: 100%">
 								<div class="heading-section">
-									<h4>
-										 MeTube
-									</h4>
+									<h4>MeTube</h4>
 								</div>
 								<iframe width="100%" height="79%"
-								src="https://www.youtube.com/embed/${video.href}"></iframe>
+									src="https://www.youtube.com/embed/${video.href}"></iframe>
 							</div>
 						</div>
 						<div class="col-lg-4">
 							<div class="top-downloaded">
 								<div class="heading-section">
-									<h4>Favorite Video</h4>
+									<h4>List Video</h4>
 								</div>
-								<ul>
-									<li><img src="assets/images/game-01.jpg" alt=""
-										class="templatemo-item">
-										<h4>Fortnite</h4>
-										<h6>Sandbox</h6> <span><i class="fa fa-star"
-											style="color: yellow;"></i> 4.9</span> <span><i
-											class="fa fa-download" style="color: #ec6090;"></i> 2.2M</span>
-										<div class="download">
-											<a href="#"><i class="fa fa-download"></i></a>
-										</div></li>
-									<li><img src="assets/images/game-02.jpg" alt=""
-										class="templatemo-item">
-										<h4>CS-GO</h4>
-										<h6>Legendary</h6> <span><i class="fa fa-star"
-											style="color: yellow;"></i> 4.9</span> <span><i
-											class="fa fa-download" style="color: #ec6090;"></i> 2.2M</span>
-										<div class="download">
-											<a href="#"><i class="fa fa-download"></i></a>
-										</div></li>
-									<li><img src="assets/images/game-03.jpg" alt=""
-										class="templatemo-item">
-										<h4>PugG</h4>
-										<h6>Battle Royale</h6> <span><i class="fa fa-star"
-											style="color: yellow;"></i> 4.9</span> <span><i
-											class="fa fa-download" style="color: #ec6090;"></i> 2.2M</span>
-										<div class="download">
-											<a href="#"><i class="fa fa-download"></i></a>
-										</div></li>
+								<ul class="overflow-auto" style="max-height: 400px; /* Set max height for the list */">
+									<c:forEach items="${videos}" var="video">
+										<a href="<c:url value='/video?action=watch&id=${video.href}'/>">
+										<li><img src="<c:url value='${video.poster}'/>" alt=""
+											class="templatemo-item">
+											<h4>${video.title}</h4>
+											 <span><i
+												class="fa-solid fa-eye" style="color: white;"></i> 4.9</span> <span><i
+												class="fa-solid fa-share" style="color: #ec6090;"></i> 2.2M</span>
+										</li>
+										</a>
+									</c:forEach>
 								</ul>
 								<div class="text-button">
 									<a href="profile.html">View All Games</a>
@@ -266,20 +249,7 @@ https://templatemo.com/tm-579-cyborg-gaming
 		</div>
 	</div>
 
-	<footer>
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<p>
-						Copyright © 2036 <a href="#">Cyborg Gaming</a> Company. All rights
-						reserved. <br>Design: <a href="https://templatemo.com"
-							target="_blank" title="free CSS templates">TemplateMo</a>
-						Distributed By <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
-					</p>
-				</div>
-			</div>
-		</div>
-	</footer>
+	<%@ include file="/common/footer.jsp"%>
 
 
 	<!-- Scripts -->

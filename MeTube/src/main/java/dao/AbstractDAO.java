@@ -72,6 +72,21 @@ public class AbstractDAO<T> {
 		}
 		return result.get(0);
 	}
+	
+	public T getOtherVideos(Class<T> clazz, String sql, Object... params) {
+		// Truyen dung theo thu tu Params de Mapping dung
+		TypedQuery<T> query = entityManager.createQuery(sql, clazz);
+		for (int i = 0; i < params.length; i++) {
+			query.setParameter(i, params[i]);
+
+		}
+		List<T> result = query.getResultList();
+		// GetResultList tranh truong hop Null
+		if (result.isEmpty()) {
+			return null;
+		}
+		return (T) result;
+	}
 
 	public List<T> findMany(Class<T> clazz, String sql, Object... params) {
 

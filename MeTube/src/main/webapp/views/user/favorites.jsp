@@ -169,18 +169,7 @@ https://templatemo.com/tm-579-cyborg-gaming
 		</div>
 	</div>
 
-	<footer>
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<p>
-						@Nguyen Quang Hoai Nam
-					</p>
-				</div>
-			</div>
-		</div>
-	</footer>
-
+	<%@ include file="/common/footer.jsp"%>
 
 	<!-- Scripts -->
 	<!-- Bootstrap core JavaScript -->
