@@ -85,7 +85,7 @@ https://templatemo.com/tm-579-cyborg-gaming
 									<h4>MeTube</h4>
 								</div>
 								<iframe width="100%" height="79%"
-									src="https://www.youtube.com/embed/${video.href}"></iframe>
+									src="https://www.youtube.com/embed/${video.href}?autoplay=1&mute=1"></iframe>
 							</div>
 						</div>
 						<div class="col-lg-4">
@@ -114,8 +114,8 @@ https://templatemo.com/tm-579-cyborg-gaming
 						<div class="row">
 							<div class="col-lg-8">
 								<h4 class="col-12 tm-text-primary pt-3">${video.title}</h4>
-								<p class="tm-text-gray-dark mb-3">Description</p>
-								<p>${video.description}</p>
+								<h5 class="pt-3" style="color: white">Description</h5>
+								<p style="color: white">${video.description}</p>
 							</div>
 						</div>
 						<c:if test="${not empty sessionScope.currentUser}">

@@ -12,17 +12,17 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.VideoDAO;
-import entity.History;
+import entity.Favorites;
 import entity.User;
 import entity.Video;
-import services.HistoryService;
+import services.FavoritesService;
 import services.VideoService;
 
 @WebServlet(urlPatterns = "/video")
 public class VideoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private VideoService videoService = new VideoService();
-	private HistoryService historyService = new HistoryService();
+	private FavoritesService historyService = new FavoritesService();
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String action = req.getParameter("action");
@@ -49,7 +49,7 @@ public class VideoController extends HttpServlet {
 		// Neu da dang nhap thi click vao xem thi them vao History - xem xem no da like
 		// hay chua
 		if (currrentUser != null) {
-			History history = historyService.create(currrentUser, video);
+			Favorites history = historyService.create(currrentUser, video);
 			req.setAttribute("flagLikedBtn", history.getIsLiked());
 		}
 

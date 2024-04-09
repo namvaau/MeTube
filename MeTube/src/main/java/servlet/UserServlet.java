@@ -100,11 +100,12 @@ public class UserServlet extends HttpServlet {
 	
 	private void doPostRegister(HttpSession session, HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
-		String username = req.getParameter("username");
+		String id = req.getParameter("id");
+		String fullname = req.getParameter("username");
 		String password = req.getParameter("password");
 		String email = req.getParameter("email");
 
-		User user = userService.create(username, password, email);
+		User user = userService.create(id, fullname,password, email);
 
 		if (user != null) {
 //			emailService.sendMail(getServletContext(), user, "welcome");

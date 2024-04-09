@@ -56,11 +56,12 @@ public class UserService {
 		return dao.findAll(pageNumber, pageSize);
 	}
 
-	public User create(String username, String password, String email) {
+	public User create(String id, String fullname, String password, String email) {
 		//
 		User newUser = new User();
+		newUser.setId(id);
+		newUser.setUsername(fullname);
 		newUser.setPassword(password);
-		newUser.setUsername(username);
 		newUser.setEmail(email);
 		newUser.setIsAdmin(Boolean.FALSE);
 		newUser.setIsActive(Boolean.TRUE);

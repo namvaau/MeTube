@@ -25,8 +25,8 @@
 							<c:when test="${not empty sessionScope.currentUser}">
 								<li class="nav-item"><a class="nav-link nav-link-1"
 									href="favorites">My Favourites</a></li>
-								<li class="nav-item"><a class="nav-link nav-link-1"
-									href="history">History</a></li>
+								<!-- <li class="nav-item"><a class="nav-link nav-link-1"
+									href="history">History</a></li> -->
 								<c:if test="${sessionScope.currentUser.getIsAdmin() == true}">
 									<li class="nav-item"><a class="nav-link nav-link-1"
 										href="/MeTube/admin">Statistical</a></li>

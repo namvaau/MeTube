@@ -97,8 +97,13 @@ https://templatemo.com/tm-579-cyborg-gaming
 											<form id="contact-form" action="register" method="POST"
 												class="tm-contact-form mx-auto">
 												<div class="form-group mb-3">
-													<input type="text" name="username"
+													<input type="text" name="id"
 														class="form-control rounded-0" placeholder="User name?"
+														required />
+												</div>
+												<div class="form-group mb-3">
+													<input type="text" name="username"
+														class="form-control rounded-0" placeholder="Fullname?"
 														required />
 												</div>
 												<div class="form-group mb-3">

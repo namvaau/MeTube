@@ -17,8 +17,8 @@ import org.hibernate.annotations.CreationTimestamp;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "history")
-public class History {
+@Table(name = "favorites")
+public class Favorites {
 
 	@Id
 	@Column(name = "id")
@@ -34,11 +34,6 @@ public class History {
 	@JoinColumn(name = "videoId", referencedColumnName = "id")
 	@JsonIgnoreProperties(value = { "applications", "hibernateLazyInitializer" })
 	private Video video;
-
-	@Column(name = "viewedDate")
-	@CreationTimestamp
-	// Auto lay time hien tai
-	private Timestamp viewedDate;
 
 	@Column(name = "isLiked")
 	private Boolean isLiked;
@@ -68,14 +63,6 @@ public class History {
 
 	public void setVideo(Video video) {
 		this.video = video;
-	}
-
-	public Timestamp getViewedDate() {
-		return viewedDate;
-	}
-
-	public void setViewedDate(Timestamp viewedDate) {
-		this.viewedDate = viewedDate;
 	}
 
 	public Boolean getIsLiked() {

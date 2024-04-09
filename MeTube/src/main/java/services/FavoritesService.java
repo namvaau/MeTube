@@ -3,43 +3,42 @@ package services;
 import java.sql.Timestamp;
 import java.util.List;
 
-import dao.HistoryDAO;
-import entity.History;
+import dao.FavoritesDAO;
+import entity.Favorites;
 import entity.User;
 import entity.Video;
 
-public class HistoryService {
-	private HistoryDAO dao;
+public class FavoritesService {
+	private FavoritesDAO dao;
 
 	private VideoService videoService = new VideoService();
 
-	public HistoryService() {
-		dao = new HistoryDAO();
+	public FavoritesService() {
+		dao = new FavoritesDAO();
 	}
 
-	public List<History> findByUser(String username) {
+	public List<Favorites> findByUser(String id) {
 		//
-		return dao.findByUser(username);
+		return dao.findByUser(id);
 	}
 
-	public List<History> findByUserAndIsLiked(String username) {
+	public List<Favorites> findByUserAndIsLiked(String id) {
 		//
-		return dao.findByUserAndIsLiked(username);
+		return dao.findByUserAndIsLiked(id);
 	}
 
-	public History findByUserIdAndVideoId(String userId, Integer videoId) {
+	public Favorites findByUserIdAndVideoId(String userId, Integer videoId) {
 		//
 		return dao.findByUserIdAndVideoId(userId, videoId);
 	}
 
-	public History create(User user, Video video) {
+	public Favorites create(User user, Video video) {
 		//
-		History existHistory = findByUserIdAndVideoId(user.getId(), video.getId());
+		Favorites existHistory = findByUserIdAndVideoId(user.getId(), video.getId());
 		if (existHistory == null) {
-			existHistory = new History();
+			existHistory = new Favorites();
 			existHistory.setUser(user);
 			existHistory.setVideo(video);
-			existHistory.setViewedDate(new Timestamp(System.currentTimeMillis()));
 			existHistory.setIsLiked(Boolean.FALSE);
 			return dao.create(existHistory);
 
@@ -50,7 +49,7 @@ public class HistoryService {
 	public boolean updateLikeOrUnlike(User user, String videoHref) {
 		//
 		Video video = videoService.findByHref(videoHref);
-		History existHistory = findByUserIdAndVideoId(user.getId(), video.getId());
+		Favorites existHistory = findByUserIdAndVideoId(user.getId(), video.getId());
 
 		if (existHistory.getIsLiked() == Boolean.FALSE) {
 			existHistory.setIsLiked(Boolean.TRUE);
@@ -60,7 +59,7 @@ public class HistoryService {
 			existHistory.setLikedDate(null);
 		}
 
-		History updateHistory = dao.update(existHistory);
+		Favorites updateHistory = dao.update(existHistory);
 		return updateHistory != null ? true : false;
 	}
 
