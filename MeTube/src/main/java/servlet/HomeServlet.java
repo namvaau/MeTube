@@ -23,7 +23,7 @@ public class HomeServlet extends HttpServlet {
 	public static final int VIDEO_MAX_PAGE_SIZE = 8;
 	private static final long serialVersionUID = 1L;
 	private VideoService videoService = new VideoService(); // Inject IoC
-	private FavoritesService historyService = new FavoritesService();
+	private FavoritesService favoritesService = new FavoritesService();
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		HttpSession session = req.getSession();
@@ -71,11 +71,17 @@ public class HomeServlet extends HttpServlet {
 
 	private void doGetFavorites(HttpSession session, HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
+		
+		
 		User user = (User) session.getAttribute("currentUser"); // Check da login
-		List<Favorites> histories = historyService.findByUserAndIsLiked(user.getUsername()); // Kiem
+		System.out.println(user.getId());
+		List<Favorites> favorites = favoritesService.findByUserAndIsLiked(user.getId()); // Kiem
 		List<Video> videos = new ArrayList<>();
-		histories.forEach(item -> videos.add(item.getVideo())); // Java8 forEach
+		favorites.forEach(item -> videos.add(item.getVideo())); // Java8 forEach
 		req.setAttribute("videos", videos);
+		
+		
+		
 		RequestDispatcher requestDispatcher = req.getRequestDispatcher("/views/user/favorites.jsp");
 		requestDispatcher.forward(req, res);
 	}
