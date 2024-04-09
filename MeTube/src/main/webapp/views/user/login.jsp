@@ -74,6 +74,7 @@ button {
 	border: 1px solid #ec6090;
 }
 
+
 button:hover {
 	background-color: #ffffff;
 	border: none;
