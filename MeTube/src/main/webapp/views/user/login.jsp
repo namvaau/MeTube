@@ -51,6 +51,33 @@ https://templatemo.com/tm-579-cyborg-gaming
 ::-webkit-scrollbar-thumb:hover {
 	background: #555;
 }
+
+input {
+	background-color: #1f2122;
+	color: #ffffff;
+	width: 100%;
+	height: 46px;
+	border-radius: 30px;
+	padding-left: 20px;
+	position: relative;
+	border: none;
+}
+
+button {
+	box-shadow: 0;
+	margin-top: 20px;
+	width: 100%;
+	height: 46px;
+	border-radius: 30px;
+	background-color: transparent;
+	color: #ec6090;
+	border: 1px solid #ec6090;
+}
+
+button:hover {
+	background-color: #ffffff;
+	border: none;
+}
 </style>
 </head>
 
@@ -87,29 +114,22 @@ https://templatemo.com/tm-579-cyborg-gaming
 									</div>
 									<div class="col-lg-4 align-self-center">
 										<div class="main-info header-text">
-											<span>MeTube</span>
-											<h4>WELCOME!</h4>
-											<p>Let's goooo</p>
+											<span>Offline</span>
+											<h4>Alan Smithee</h4>
+											<p>"Welcome to Metube, enjoy entertaining videos with us!</p>
+											<div class="main-border-button">
+												<a href="#">Watch Now</a>
+											</div>
 										</div>
 									</div>
 									<div class="col-lg-4 align-self-center">
 										<ul>
-											<form id="contact-form" action="login" method="POST"
-												class="tm-contact-form mx-auto">
-												<div class="form-group mb-3">
-													<input type="text" name="username"
-														class="form-control rounded-0" placeholder="User name?"
-														required />
-												</div>
-												<div class="form-group">
-													<input type="password" name="password"
-														class="form-control rounded-0" placeholder="Password?"
-														required />
-												</div>
-												<div class="form-group">
-													<center>
-														<button type="submit" class="btn btn-primary mt-5">Login</button>
-													</center>
+											<form id="contact-form" action="login" method="POST">
+												<input type="text" name="username" placeholder="User name?"
+													required class="mb-3" /> <input type="password"
+													name="password" placeholder="Password?" required />
+												<button type="submit" class="mt-5">Login</button>
+												<div class="form">
 													<h5 id="errorBtn"></h5>
 												</div>
 											</form>

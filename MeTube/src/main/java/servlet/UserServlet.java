@@ -105,12 +105,12 @@ public class UserServlet extends HttpServlet {
 		String password = req.getParameter("password");
 		String email = req.getParameter("email");
 
-		User user = userService.create(id, fullname,password, email);
+		User user = userService.create(id, fullname, password, email);
 
 		if (user != null) {
 //			emailService.sendMail(getServletContext(), user, "welcome");
 //			session.setAttribute(SessionAtt.CURRENT_USER, user);
-//			res.sendRedirect("index");
+			res.sendRedirect("index");
 
 		} else {
 			res.sendRedirect("register");
