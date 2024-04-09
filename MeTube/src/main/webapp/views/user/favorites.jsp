@@ -110,9 +110,9 @@ https://templatemo.com/tm-579-cyborg-gaming
 													<img src="<c:url value='${video.poster}'/>" alt="">
 													<h4>${video.title}</h4>
 													<ul>
-														<li><i class="fa fa-star"></i> ${video.shares} -
-															Shares</li>
-														<li><i class="fa fa-download"></i> ${video.views} -
+													<!--  	<li><i class="fa fa-star"></i> ${video.shares} -
+															Shares</li> -->
+														<li><i class="fa-regular fa-eye"></i> ${video.views} -
 															Views</li>
 													</ul>
 												</div>
@@ -130,7 +130,7 @@ https://templatemo.com/tm-579-cyborg-gaming
 					</div>
 					<!-- ***** Most Popular End ***** -->
 
-					<!-- ***** Gaming Library Start ***** -->
+					<!-- ***** Gaming Library Start ***** 
 					<div class="gaming-library">
 						<div class="col-lg-12">
 							<div class="heading-section">
@@ -184,6 +184,7 @@ https://templatemo.com/tm-579-cyborg-gaming
 							</div>
 						</div>
 					</div>
+					
 					<!-- ***** Gaming Library End ***** -->
 				</div>
 			</div>
