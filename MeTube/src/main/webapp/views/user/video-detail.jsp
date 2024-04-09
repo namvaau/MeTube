@@ -31,6 +31,27 @@ TemplateMo 579 Cyborg Gaming
 https://templatemo.com/tm-579-cyborg-gaming
 
 -->
+<style>
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+</style>
 </head>
 
 <body>
@@ -72,21 +93,21 @@ https://templatemo.com/tm-579-cyborg-gaming
 								<div class="heading-section">
 									<h4>List Video</h4>
 								</div>
-								<ul class="overflow-auto" style="max-height: 400px; /* Set max height for the list */">
+								<ul class="overflow-auto" style="max-height: 400px;">
 									<c:forEach items="${videos}" var="video">
-										<a href="<c:url value='/video?action=watch&id=${video.href}'/>">
-										<li><img src="<c:url value='${video.poster}'/>" alt=""
-											class="templatemo-item">
-											<h4>${video.title}</h4>
-											 <span><i
-												class="fa-solid fa-eye" style="color: white;"></i> 4.9</span> <span><i
-												class="fa-solid fa-share" style="color: #ec6090;"></i> 2.2M</span>
+										<a
+											href="<c:url value='/video?action=watch&id=${video.href}'/>">
+											<li><img src="<c:url value='${video.poster}'/>" alt=""
+												class="templatemo-item">
+												<h4>${video.title}</h4> <span><i
+													class="fa-solid fa-eye" style="color: white;"></i> 4.9</span> <span><i
+													class="fa-solid fa-share" style="color: #ec6090;"></i> 2.2M</span>
 										</li>
 										</a>
 									</c:forEach>
 								</ul>
 								<div class="text-button">
-									<a href="profile.html">View All Games</a>
+									<a href="profile.html">View All Video</a>
 								</div>
 							</div>
 						</div>

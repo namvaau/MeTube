@@ -27,7 +27,7 @@ public class HistoryService {
 		return dao.findByUserAndIsLiked(username);
 	}
 
-	public History findByUserIdAndVideoId(Integer userId, Integer videoId) {
+	public History findByUserIdAndVideoId(String userId, Integer videoId) {
 		//
 		return dao.findByUserIdAndVideoId(userId, videoId);
 	}

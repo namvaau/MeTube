@@ -18,8 +18,7 @@ import javax.persistence.Table;
 public class User {
 	@Id
 	@Column(name = "id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private String id;
 
 	@Column(name = "username")
 	private String username;
@@ -36,11 +35,11 @@ public class User {
 	@Column(name = "isActive")
 	private Boolean isActive;
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

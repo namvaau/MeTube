@@ -24,28 +24,24 @@
 						<c:choose>
 							<c:when test="${not empty sessionScope.currentUser}">
 								<li class="nav-item"><a class="nav-link nav-link-1"
-									data-toggle="modal" data-target="#changePassModal"
-									aria-current="page" href="">Welcome,${sessionScope.currentUser.username}</a>
-								</li>
-								<li class="nav-item"><a class="nav-link nav-link-1"
 									href="favorites">My Favourites</a></li>
 								<li class="nav-item"><a class="nav-link nav-link-1"
 									href="history">History</a></li>
 								<c:if test="${sessionScope.currentUser.getIsAdmin() == true}">
 									<li class="nav-item"><a class="nav-link nav-link-1"
-										href="/Assignment/admin">Statistical</a></li>
+										href="/MeTube/admin">Statistical</a></li>
 								</c:if>
 								<li class="nav-item"><a class="nav-link nav-link-1"
 									href="logout">Log out</a></li>
+								<li><a href="<c:url value='/index'/>">${sessionScope.currentUser.username} <img src="assets/images/profile-header.jpg" alt=""></a></li>
 							</c:when>
 							<c:otherwise>
 								<li class="nav-item"><a class="nav-link nav-link-1"
 									href="forgotPass">Forgot Password</a></li>
 								<li class="nav-item"><a class="nav-link nav-link-1"
-									href="login">Login</a></li>
-								<li class="nav-item"><a class="nav-link nav-link-1"
 									href="register">Register</a></li>
-								<li><a href="profile.html">Profile <img src="assets/images/profile-header.jpg" alt=""></a></li>
+								<li class="nav-item"><a class="nav-link nav-link-1"
+									href="login">Login <img src="assets/images/profile-header.jpg" alt=""></a></li>
 							</c:otherwise>
 						</c:choose>
 					</ul>

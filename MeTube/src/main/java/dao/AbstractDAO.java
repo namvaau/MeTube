@@ -22,6 +22,10 @@ public class AbstractDAO<T> {
 	public T findById(Class<T> clazz, Integer id) {
 		return entityManager.find(clazz, id);
 	}
+	
+	public T findByUserId(Class<T> clazz, String id) {
+		return entityManager.find(clazz, id);
+	}
 
 	public List<T> findAll(Class<T> clazz, boolean existIsActive) {
 		String entityName = clazz.getSimpleName();
