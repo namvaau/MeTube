@@ -25,4 +25,9 @@ public class FavoritesDAO extends AbstractDAO<Favorites> {
 		String sql = "SELECT o FROM Favorites o  WHERE o.user.id = ?0 AND o.video.id = ?1" + " AND o.video.isActive = 1";
 		return super.findOne(Favorites.class, sql, userId, videoId);
 	}
+	
+	public void increaseView(Integer videoId, Integer currentView) {
+		currentView++;
+		String sql = "UPDATE video SET view = "+currentView+" WHERE id = "+videoId;
+	}
 }

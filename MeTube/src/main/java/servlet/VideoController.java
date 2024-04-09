@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.VideoDAO;
+import dao.FavoritesDAO;
 import entity.Favorites;
 import entity.User;
 import entity.Video;
@@ -23,6 +24,8 @@ public class VideoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private VideoService videoService = new VideoService();
 	private FavoritesService historyService = new FavoritesService();
+	private FavoritesDAO favoritesDAO = new FavoritesDAO();
+	private VideoDAO videoDAO = new VideoDAO();
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String action = req.getParameter("action");
@@ -52,6 +55,14 @@ public class VideoController extends HttpServlet {
 			Favorites history = historyService.create(currrentUser, video);
 			req.setAttribute("flagLikedBtn", history.getIsLiked());
 		}
+		
+//		favoritesDAO.increaseView(video.getId(), video.getViews());
+		int currentView = video.getViews();
+		currentView++;
+		video.setViews(currentView);
+		videoDAO.update(video);
+		
+		
 
 		RequestDispatcher requestDispatcher = req.getRequestDispatcher("/views/user/video-detail.jsp");
 		requestDispatcher.forward(req, resp);
