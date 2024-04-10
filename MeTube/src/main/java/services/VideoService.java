@@ -36,7 +36,7 @@ public class VideoService {
 	}
 
 	public List<Video> getOtherVideos(String href) {
-		String hql = "SELECT o FROM Video o WHERE o.href != ?0";
+		String hql = "SELECT o FROM Video o WHERE o.href != ?0 && o.isActive = 1";
 		return dao.findMany(Video.class, hql, href);
 	}
 
