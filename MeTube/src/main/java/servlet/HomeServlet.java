@@ -18,7 +18,7 @@ import entity.Video;
 import services.FavoritesService;
 import services.VideoService;
 
-@WebServlet(urlPatterns = { "/index", "/favorites", "/history" })
+@WebServlet(urlPatterns = { "/index", "/favorites", "/history", "/admin" })
 public class HomeServlet extends HttpServlet {
 	public static final int VIDEO_MAX_PAGE_SIZE = 8;
 	private static final long serialVersionUID = 1L;
@@ -37,12 +37,32 @@ public class HomeServlet extends HttpServlet {
 		case "/favorites":
 			doGetFavorites(session, req, res);
 			break;
-			}
+		case "/admin":
+			doGetAdmin(session, path, req, res);
+			break;
+		}	
 //		case "/history":
 //			doGetHistory(session, req, res);
 //			break;
 //		}
 
+	}
+	
+	
+	private void doGetAdmin(HttpSession session, String href, HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		List<Video> lst = videoService.getOtherVideos(href);
+		req.setAttribute("videos", lst);
+		
+		
+
+
+
+		
+		
+
+		RequestDispatcher requestDispatcher = req.getRequestDispatcher("/views/user/admin.jsp");
+		requestDispatcher.forward(req, resp);
 	}
 
 	private void doGetIndex(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {

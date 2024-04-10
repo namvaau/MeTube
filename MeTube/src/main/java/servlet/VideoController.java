@@ -19,7 +19,7 @@ import entity.Video;
 import services.FavoritesService;
 import services.VideoService;
 
-@WebServlet(urlPatterns = "/video")
+@WebServlet(urlPatterns = { "/video", "/like"})
 public class VideoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private VideoService videoService = new VideoService();
@@ -40,6 +40,8 @@ public class VideoController extends HttpServlet {
 			break;
 		}
 	}
+	
+	
 
 	private void doGetWatch(HttpSession session, String href, HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {

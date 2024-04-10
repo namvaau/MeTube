@@ -34,22 +34,22 @@ https://templatemo.com/tm-579-cyborg-gaming
 <style>
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
+	width: 10px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+	background: #f1f1f1;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888; 
+	background: #888;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+	background: #555;
 }
 </style>
 </head>
@@ -84,8 +84,41 @@ https://templatemo.com/tm-579-cyborg-gaming
 								<div class="heading-section">
 									<h4>MeTube</h4>
 								</div>
-								<iframe width="100%" height="79%"
-									src="https://www.youtube.com/embed/${video.href}?autoplay=1&mute=1"></iframe>
+
+
+
+								<form id="youtubeForm" action="" method="get">
+									<div class="form-group">
+										<label for="youtubeLink" class="text-white">YouTube
+											Link:</label> <input type="url" id="youtubeLink" name="youtubeLink" value="${linkYoutube}"
+											class="form-control" required>
+									</div>
+									<div class="form-group">
+										<label for="title" class="text-white">Title:</label> <input
+											type="text" id="title" name="title" class="form-control" value="${title}"
+											required>
+									</div>
+									<div class="form-group">
+										<label for="description" class="text-white">Description:</label>
+										<textarea id="description" name="description" 
+											class="form-control" required>${description}</textarea>
+									</div>
+									<div class="button-group m-2">
+										<button formaction="upload" id="uploadBtn"
+											class="btn btn-success">Upload</button>
+										<button formaction="update" id="updateBtn"
+											class="btn btn-warning">Update</button>
+										<button formaction="delete" id="deleteBtn"
+											class="btn btn-danger">Delete</button>
+										<button formaction="new" id="newBtn" class="btn btn-primary">New</button>
+									</div>
+								</form>
+
+
+
+
+
+
 							</div>
 						</div>
 						<div class="col-lg-4">
@@ -96,12 +129,13 @@ https://templatemo.com/tm-579-cyborg-gaming
 								<ul class="overflow-auto" style="max-height: 400px;">
 									<c:forEach items="${videos}" var="video">
 										<a
-											href="<c:url value='/video?action=watch&id=${video.href}'/>">
+											href="fill?id=${video.id}&title=${video.title}&description=${video.description}&href=${video.href}">
 											<li><img src="<c:url value='${video.poster}'/>" alt=""
 												class="templatemo-item">
 												<h4>${video.title}</h4> <span><i
-													class="fa-solid fa-eye" style="color: white;"></i> ${video.views}</span> <!-- <span><i
-													class="fa-solid fa-share" style="color: #ec6090;"></i> 2.2M</span> --> 
+													class="fa-solid fa-eye" style="color: white;"></i>
+													${video.views}</span> <!-- <span><i
+													class="fa-solid fa-share" style="color: #ec6090;"></i> 2.2M</span> -->
 										</li>
 										</a>
 									</c:forEach>
@@ -111,30 +145,7 @@ https://templatemo.com/tm-579-cyborg-gaming
 								</div>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-lg-8">
-								<h4 class="col-12 tm-text-primary pt-3">${video.title}</h4>
-								<h5 class="pt-3" style="color: white">Description</h5>
-								<p style="color: white">${video.description}</p>
-							</div>
-						</div>
-						<c:if test="${not empty sessionScope.currentUser}">
-							<div class="d-flex">
-								<div class="text-center mb-5">
-									<button id="likeOrUnlikeBtn" class="btn btn-primary">
-										<c:choose>
-											<c:when test="${flagLikedBtn == true}">
-									Unlike
-									</c:when>
-											<c:otherwise>Like</c:otherwise>
-										</c:choose>
-									</button>
-								</div>
-								<div class="text-center mb-5">
-									<a href="#" class="btn btn-primary ms-2">Share this!</a>
-								</div>
-							</div>
-						</c:if>
+
 					</div>
 					<!-- ***** Featured Games End ***** -->
 
@@ -283,8 +294,6 @@ https://templatemo.com/tm-579-cyborg-gaming
 	<script src="assets/js/tabs.js"></script>
 	<script src="assets/js/popup.js"></script>
 	<script src="assets/js/custom.js"></script>
-
-
 </body>
 
 </html>
