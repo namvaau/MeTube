@@ -110,7 +110,7 @@ https://templatemo.com/tm-579-cyborg-gaming
 											class="btn btn-warning">Update</button>
 										<button formaction="delete" id="deleteBtn"
 											class="btn btn-danger">Delete</button>
-										<button formaction="new" id="newBtn" class="btn btn-primary">New</button>
+										<a href="/MeTube/admin" id="newBtn" class="btn btn-primary">New</a>
 									</div>
 								</form>
 

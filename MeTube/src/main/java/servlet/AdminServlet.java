@@ -144,6 +144,24 @@ public class AdminServlet extends HttpServlet {
 		req.setAttribute("videos", lst);
 		
 	
+		
+		
+		String title = req.getParameter("title");
+		String description = req.getParameter("description");
+		String linkYoutube = req.getParameter("youtubeLink");
+		 String youtubeId = extractYoutubeVideoId(linkYoutube);
+		
+		Video vd = videoService.findByHref(youtubeId);
+		//Edit theo Href
+		vd.setTitle(title);
+		vd.setDescription(description);
+		
+		videoService.update(vd);
+
+		
+		
+		
+		
 
 		
 
