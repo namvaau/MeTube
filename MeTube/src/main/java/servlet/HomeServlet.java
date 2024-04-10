@@ -26,7 +26,7 @@ public class HomeServlet extends HttpServlet {
 	private FavoritesService favoritesService = new FavoritesService();
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		HttpSession session = req.getSession();
+		HttpSession session = req.getSession();    
 		req.setCharacterEncoding("utf-8");
 		// DoGet tong de? lay path cua tung DoGet theo case
 		String path = req.getServletPath(); // localhost/Asm-Java4/login - Path re nhanh phia sau ten Project
